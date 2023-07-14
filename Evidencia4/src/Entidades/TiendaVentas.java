@@ -85,17 +85,25 @@ public class TiendaVentas {
         
         return false;
     }
-
-    // public boolean validarCredenciales(Usuario usuario, String contraseña) {
-    //     if (usuariosRegistrados.containsKey(usuario.getCodigo())) {
-    //         String contraseñaRegistrada = usuariosRegistrados.get(usuario.getCodigo()).getContraseña();
-    //         return contraseña.equals(contraseñaRegistrada);
-    //     }
-    //     return false;
-    // }
     
+     //Modulo de obtencion de descuento para el usuario
+     private double obtenerDescuentoConsola() {
+        double descuento = -1;
+        while (descuento < 0) {
+            try {
+                String input = scanner.nextLine();
+                descuento = Double.parseDouble(input);
+                if (descuento < 0) {
+                    System.out.println("El descuento debe ser un valor positivo. Ingrese nuevamente:");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("El descuento debe ser un valor numérico. Ingrese nuevamente:");
+            }
+        }
+        return descuento;
+    }
+    //Metodo de registrar usuario nuevo
     public void registrarUsuario() {
-        
         System.out.println("Ingrese nombre de usuario:");
         String codigoUsuario = scanner.nextLine();
         if (usuariosRegistrados.containsKey(codigoUsuario)) {
@@ -126,7 +134,6 @@ public class TiendaVentas {
             this.codigoUsuario = codigoUsuario;
         }
     }
-
     public Map<String, Usuario> getUsuariosRegistrados() {
         return usuariosRegistrados;
     }
@@ -251,23 +258,4 @@ public class TiendaVentas {
         carrito.vaciarCarrito();
         System.out.println("Carrito vaciado.");
     }
-
-    //Modulo de obtencion de descuento para el usuario
-    private double obtenerDescuentoConsola() {
-        double descuento = -1;
-        while (descuento < 0) {
-            try {
-                String input = scanner.nextLine();
-                descuento = Double.parseDouble(input);
-                if (descuento < 0) {
-                    System.out.println("El descuento debe ser un valor positivo. Ingrese nuevamente:");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("El descuento debe ser un valor numérico. Ingrese nuevamente:");
-            }
-        }
-        return descuento;
-    }
-
-    
 }
