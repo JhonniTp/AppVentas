@@ -1,12 +1,5 @@
-//INTEGRANTES
-//Renato Sebastián Torres Rodríguez
-//Nicole Curi Zarate 
-//Yoni Nando Turpo Quispe 
-//Elvis Ccahua Saico
-//Mayerli Katiuska Esperilla Cutipa
-
-
 //MODULO PRINCIPAL
+//Interación con el usuario
 //clase de ejecutable y de interaccion con el usuario
 import java.util.Scanner;
 import Entidades.TiendaVentas;
